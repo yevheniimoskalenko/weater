@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="city">city</label>
+        <input type="text" class="form-control" v-model="form.city" />
+      </div>
+    </form>
+    <button @click="load">tets</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import weaterService from "../components/service/weaterService.js";
 export default {
+  data() {
+    return {
+      form: {
+        city: "",
+      },
+    };
+  },
   name: "Home",
-  components: {
-    HelloWorld
-  }
+  components: {},
+  methods: {
+    async load() {
+      await console.log(weaterService.api);
+    },
+  },
 };
 </script>
